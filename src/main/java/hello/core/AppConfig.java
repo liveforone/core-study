@@ -18,6 +18,7 @@ public class AppConfig {
     //@Bean -> memberService -> new MemoryMemberRepository()
     //@Bean -> orderService -> new MemoryMemberRepository()
 
+    //예상한 결과
     //call AppConfig.memberService
     //call AppConfig.memberRepository
     //call AppConfig.memberRepository
@@ -28,6 +29,8 @@ public class AppConfig {
     //call AppConfig.memberService
     //call AppConfig.memberRepository
     //call AppConfig.orderService
+    //memberRepository가 여러번 출력되지 않은 이유는 이미 존재하는 스프링 빈이기 때문에
+    //스프링이 한 번만 반환하기 때문이다. 이러한 이유로 싱글톤이 보장된다.
 
     @Bean //메서드이름이 스프링 컨테이너에 등록됨
     public MemberService memberService() {
