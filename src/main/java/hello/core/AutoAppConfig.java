@@ -1,5 +1,8 @@
 package hello.core;
 
+import hello.core.member.MemberRepository;
+import hello.core.member.MemoryMemberRepository;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
@@ -13,4 +16,9 @@ import org.springframework.context.annotation.FilterType;
 왜냐하면 AppConfig클래스는 수동 등록한 것이라서 현재 클래스와 충둘이 나면 안되기 때문이다.
  */
 public class AutoAppConfig {
+
+    @Bean(name = "memoryMemberRepository")
+    MemberRepository memberRepository() {
+        return new MemoryMemberRepository();
+    }
 }
